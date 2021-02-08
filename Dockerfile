@@ -8,7 +8,7 @@ COPY requirements.txt .
 # libpq-dev and gcc are a psycopg2 dependency;
 # libffi-dev python-dev and gcc are dependencies for bcrypt.
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc=10.1 \
+    gcc \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
