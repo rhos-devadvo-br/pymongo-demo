@@ -1,3 +1,6 @@
+from gevent.monkey import patch_all
+patch_all()
+
 from os import getenv
 import sys
 import signal
@@ -65,7 +68,7 @@ if __name__ == '__main__':
     try:
         flask_server.run(
             host=getenv('FLASK_HOST') or "0.0.0.0",
-            port=getenv('FLASK_PORT') or 5000,
+            port=getenv('FLASK_PORT') or 8080,
             debug=getenv('FLASK_DEBUG') or True
         )
     finally:
