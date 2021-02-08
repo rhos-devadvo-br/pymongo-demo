@@ -7,11 +7,12 @@ COPY requirements.txt .
 # --- Install python packages
 # libpq-dev and gcc are a psycopg2 dependency;
 # libffi-dev python-dev and gcc are dependencies for bcrypt.
-RUN apt-get clean && \
-    apt-get -y update && \
-    apt-get install -y gcc=10.1 && \
-    pip3 install -r requirements.txt --no-cache-dir && \
-    apt-get autoremove -y gcc
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc=10.1 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install -r requirements.txt --no-cache-dir
 
 # --- Copy application files
 COPY . .
