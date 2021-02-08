@@ -9,14 +9,7 @@ COPY requirements.txt .
 # libffi-dev python-dev and gcc are dependencies for bcrypt.
 RUN apt-get clean && \
     apt-get -y update && \
-    apt-get install -y \
-    libpq-dev \
-    libffi-dev \
-    python-dev \
-    libpcre3 \
-    libpcre3-dev \
-    gcc && \
-    pip3 install numpy --no-cache-dir && \
+    apt-get install -y gcc && \
     pip3 install -r requirements.txt --no-cache-dir && \
     apt-get autoremove -y gcc
 
