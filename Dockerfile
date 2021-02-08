@@ -23,12 +23,12 @@ RUN apt-get clean && \
 COPY . .
 
 # --- Set Flask server variables
-ENV FLASK_PORT=8080
+ENV FLASK_PORT=5000
 ENV FLASK_HOST=0.0.0.0
 ENV FLASK_DEBUG=True
 
 # --- Document exposed port
-EXPOSE 8080
+EXPOSE 5000
 
 # --- Run uWSGI
 CMD ["uwsgi", "--ini", "/wsgi.ini"]
