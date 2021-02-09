@@ -6,7 +6,7 @@ from flask import Flask, request, redirect, render_template
 
 
 app = Flask(__name__)
-
+database_enabled = None
 
 @app.route('/', methods=['GET'])
 def hello_world():
