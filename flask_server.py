@@ -50,10 +50,6 @@ def get_motd():
         return None
 
 
-def sigterm_handler(_signo, _stack_frame):
-    sys.exit(0)
-
-
 if __name__ == '__main__':
     try:
         dbname = getenv('DATABASE_NAME')
@@ -66,13 +62,9 @@ if __name__ == '__main__':
         database_enabled = True
     except:
         database_enabled = False
-
-    signal.signal(signal.SIGTERM, sigterm_handler)
-    try:
+    finally:
         flask_server.run(
             host=getenv('FLASK_HOST') or "0.0.0.0",
             port=getenv('FLASK_PORT') or 5000,
             debug=getenv('FLASK_DEBUG') or True
         )
-    finally:
-        print('Exiting...')
