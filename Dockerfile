@@ -4,6 +4,8 @@ FROM vmpereiraf/gdal-py:latest
 # --- Copy application files
 COPY . .
 
+RUN pip3 install pymongo -y
+
 # --- Set Flask server variables
 ENV FLASK_PORT=8080
 ENV FLASK_HOST=0.0.0.0
