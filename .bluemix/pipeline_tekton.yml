@@ -5,7 +5,7 @@ inputs:
     service: ${PIPELINE_REPO}
     path: .pipeline
   - type: git
-    branch: master
+    branch: test-env
     service: ${TEKTON_CATALOG_REPO}
     path: git
   - type: git
